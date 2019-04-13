@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-
 const router = express.Router();
 
 const User = require('../models/userModel');
@@ -14,9 +13,15 @@ router.post('/register', (req, res) => {
     }
     else {
       userController.register_user(req).then((result) => {
-        res.send('User: ' + result + ' created!');
+        res.send('User: ' + result.username + ' created!');
       });
     }
+  });
+});
+
+router.post('/login', (req, res) => {
+  userController.login_user(req, res).then((result) => {
+    res.send(result);
   });
 });
 
