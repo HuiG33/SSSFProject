@@ -29,4 +29,22 @@ router.post('/create', (req, res) => {
   });
 });
 
+router.post('/carpool/:id/suggestion', (req, res) => {
+  carpoolController.add_suggestion(req).then((result) => {
+    res.send(result);
+  });
+});
+
+router.post('/carpool/:id/waypoint', (req, res) => {
+  carpoolController.add_waypoint(req).then((result) => {
+    res.send(result);
+  });
+});
+
+router.delete('/carpool/:id', (req, res) => {
+  carpoolController.delete_carpool(req.params.id).then((result) => {
+    res.send(result);
+  });
+});
+
 module.exports = router;

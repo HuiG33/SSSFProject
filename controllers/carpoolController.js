@@ -33,3 +33,25 @@ exports.create_carpool = (req, res) => {
     res.json({status:"error", message: err, data:null});
   });
 };
+
+exports.delete_carpool = (id) => {
+  return Carpool.findByIdAndDellete({_id: id}).then((response) => {
+    return response;
+  }).catch((err) => {
+    return err;
+  });
+};
+
+exports.add_suggestion = (req) => {
+  const query = {_id: req.params.id};
+  const update = {$push: {suggestions: req.body}};
+  const opt = {new: true};
+  return Carpool.findOneAndUpdate(query, update, opt);
+};
+
+exports.add_waypoint = (req) => {
+  const query = {_id: req.params.id};
+  const update = {$push: {waypoints: req.body}};
+  const opt = {new: true};
+  return Carpool.findOneAndUpdate(query, update, opt);
+};
