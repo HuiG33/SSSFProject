@@ -35,8 +35,20 @@ router.post('/carpool/:id/suggestion', (req, res) => {
   });
 });
 
+router.post('/carpool/:id/suggestion/:ids', (req, res) => {
+  carpoolController.del_suggestion(req).then((result) => {
+    res.send(result);
+  });
+});
+
 router.post('/carpool/:id/waypoint', (req, res) => {
   carpoolController.add_waypoint(req).then((result) => {
+    res.send(result);
+  });
+});
+
+router.post('/carpool/:id/waypoint/:idw', (req, res) => {
+  carpoolController.del_waypoint(req).then((result) => {
     res.send(result);
   });
 });

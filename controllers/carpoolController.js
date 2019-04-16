@@ -35,7 +35,7 @@ exports.create_carpool = (req, res) => {
 };
 
 exports.delete_carpool = (id) => {
-  return Carpool.findByIdAndDellete({_id: id}).then((response) => {
+  return Carpool.findByIdAndDelete({_id: id}).then((response) => {
     return response;
   }).catch((err) => {
     return err;
@@ -52,6 +52,20 @@ exports.add_suggestion = (req) => {
 exports.add_waypoint = (req) => {
   const query = {_id: req.params.id};
   const update = {$push: {waypoints: req.body}};
+  const opt = {new: true};
+  return Carpool.findOneAndUpdate(query, update, opt);
+};
+
+exports.del_suggestion = (req) => {
+  const query = {_id: req.params.id};
+  const update = {$pull: {suggestions: {_id: req.params.ids}}};
+  const opt = {new: true};
+  return Carpool.findOneAndUpdate(query, update, opt);
+};
+
+exports.del_waypoint = (req) => {
+  const query = {_id: req.params.id};
+  const update = {$pull: {waypoints: {_id: req.params.idw}}};
   const opt = {new: true};
   return Carpool.findOneAndUpdate(query, update, opt);
 };
