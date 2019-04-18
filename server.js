@@ -13,9 +13,19 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 
-app.set('secretKey', process.env.SECRETKEY); //TODO
+app.enable('trust proxy');
+app.set('secretKey', process.env.SECRETKEY);
 
 db.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PWD}@${process.env.DB_HOST}:${process.env.DB_PORT}/test`, app);
+app.use ((req, res, next) => {
+  if (req.secure) {
+    // request was via https, so do no special handling
+    next();
+  } else {
+    // request was via http, so redirect to https
+    res.redirect('https://' + req.headers.host + req.url);
+  }
+});
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
