@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/start/:user', (req, res) => {
+router.get('/my/:user', (req, res) => {
   carpoolController.sort_carpools_user(res, req.params.user).then((result) => {
     res.send(result);
   });
