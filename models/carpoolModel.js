@@ -8,16 +8,16 @@ const carpoolSchema = new Schema({
     town: String,
     address: String,
     coordinates: {
-      lat: Number,
-      lng: Number
+      latitude: Number,
+      longitude: Number
     }
   },
   end: {
     town: String,
     address: String,
     coordinates: {
-      lat: Number,
-      lng: Number
+      latitude: Number,
+      longitude: Number
     }
   },
   waypoints: [{
@@ -25,8 +25,8 @@ const carpoolSchema = new Schema({
     address: String,
     hitchhiker: String,
     coordinates: {
-      lat: Number,
-      lng: Number
+      latitude: Number,
+      longitude: Number
     }
   }],
   suggestions: [{
@@ -34,8 +34,8 @@ const carpoolSchema = new Schema({
     address: String,
     hitchhiker: String,
     coordinates: {
-      lat: Number,
-      lng: Number
+      latitude: Number,
+      longitude: Number
     }
   }]
 });
