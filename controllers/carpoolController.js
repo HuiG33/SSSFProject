@@ -11,7 +11,7 @@ exports.get_carpools = (res) => {
 };
 
 exports.sort_carpools_user = (res, user) => {
-  return Carpool.find({_id: user}).then((all) => {
+  return Carpool.find({driver: user}).then((all) => {
     res.json({status:"success", message: "Carpools found!", data: {carpools: all}});
   }).catch((err) => {
     res.json({status:"error", message: err, data:null});

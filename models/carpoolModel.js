@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const carpoolSchema = new Schema({
+  driver: String,
   start: {
     town: String,
     address: String,

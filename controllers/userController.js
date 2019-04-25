@@ -25,7 +25,7 @@ exports.login_user = (req, res) => {
     }
     if (bcrypt.compareSync(req.body.password, user.password)){
       const token = jwt.sign({id: user._id}, req.app.get('secretKey'), {expiresIn: '1h'});
-      res.json({status:"success", message: "User found", data: {user: user.username, token: token}});
+      res.json({status:"success", message: "User found", data: {userid: user._id, user: user.username, token: token}});
     }
     else {
       res.json({status:"error", message: "Invalid email/password!!!", data:null});
