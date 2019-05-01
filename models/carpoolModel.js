@@ -21,19 +21,15 @@ const carpoolSchema = new Schema({
     town: String,
     address: String,
     hitchhiker: String,
-    coordinates: {
-      latitude: Number,
-      longitude: Number
-    }
+    latitude: Number,
+    longitude: Number
   }],
   suggestions: [{
     town: String,
     address: String,
     hitchhiker: String,
-    coordinates: {
-      latitude: Number,
-      longitude: Number
-    }
+    latitude: Number,
+    longitude: Number
   }]
 });
 
