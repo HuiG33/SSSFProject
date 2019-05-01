@@ -36,6 +36,8 @@ exports.sort_carpools_end = (res, end) => {
 
 exports.create_carpool = (req, res) => {
   console.log(req.body);
+  req.body.waypoints = [];
+  req.body.suggestions = [];
   return Carpool.create(req.body).then(post => {
     res.json({status:"success", message: "Carpool created!", data: {carpool: post}});
   }).catch((err) => {
