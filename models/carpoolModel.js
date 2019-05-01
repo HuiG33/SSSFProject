@@ -8,18 +8,14 @@ const carpoolSchema = new Schema({
   start: {
     town: String,
     address: String,
-    coordinates: {
-      latitude: Number,
-      longitude: Number
-    }
+    latitude: Number,
+    longitude: Number
   },
   end: {
     town: String,
     address: String,
-    coordinates: {
-      latitude: Number,
-      longitude: Number
-    }
+    latitude: Number,
+    longitude: Number
   },
   waypoints: [{
     town: String,
