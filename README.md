@@ -32,6 +32,8 @@ Carpool:
 <br/>
 `'/carpool/:id/waypoint/:idw - POST'` delete waypoint
 <br/>
+`'/carpools/carpool/:id - DELETE'` delete carpool
+<br/>
 
 
 
